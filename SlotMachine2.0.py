@@ -1,20 +1,29 @@
+# Swayam Suresh Thripathy - UCSE22043
+# Somya Sworupa Dash  - UCSE22039
+# Shabyasachi Thripathy - UCSE22030
+# Shashikanta Chinara - UCSE22063
+# Aryan Divyadarshee - UCSE22060
+
 import random
 import numpy as np
 import time
 
 # Define characters for the slot machine
-characters = ['Apple', 'Orange', 'Strawbery']
+characters = ['Apple', 'Gold', 'Pig', 'Cherry', 'Banana', 'Diamond']
 
-# Define the odds for each character
-character_odds = {
-    'Apple': 1,
-    'Orange': 2,
-    'Strawbery': 3,
-}
-
-# Set the initial balance and minimum bet amount
-balance = 500  # You can customize the initial balance
+# Set the initial balance
+balance = 1000  # You can customize the initial balance
 min_bet = 10    # You can customize the minimum bet amount
+
+# Adjusted character odds
+character_odds = {
+    'Apple': 5,
+    'Gold': 4,
+    'Pig': 3,
+    'Cherry': 2,
+    'Banana': 3,
+    'Diamond': 4
+}
 
 # Function to spin the slot machine
 def spin_slot_machine():
@@ -41,17 +50,16 @@ def display_slot_machine(result):
 while balance > 0:
     print("Welcome to the Slot Machine!")
     print(f"Your current balance: {balance}")
-    print("Minimum balance required to place a bet is : 10")
     print("Characters to choose from:")
     for index, character in enumerate(characters, 1):
         print(f"{index}. {character}")
 
     bets = {}
     while True:
-        choice = int(input("Choose a character to bet on (1-3, 0 to stop selecting characters): "))
+        choice = int(input("Choose a character to bet on (1-6, 0 to stop selecting characters): "))
         if choice == 0:
             break
-        if choice < 1 or choice > 3:
+        if choice < 1 or choice > 6:
             print("Invalid choice. Please select a valid character.")
             continue
         character = characters[choice - 1]
